@@ -64,7 +64,7 @@ sources can be found https://github.com/Gcenx/wineskin-source/tree/Kegworks
 
 ## Components that don't fall under LGPG-2.1 license
 _Kegworks Winery-2.0.3/Wineskin-3.0.6-1 or greater_
-- `wineskinlauncher` (Kegworks in wineskin compatability mode)
+- `wineskinlauncher` (Kegworks in wineskin compatibility mode)
 
 <br>
 
