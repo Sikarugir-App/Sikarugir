@@ -18,7 +18,7 @@ This project supports *macOS 10.15.4* or later.
 
 <br>
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/pCgYxRPIqjE/0.jpg)](http://www.youtube.com/watch?v=pCgYxRPIqjE&t=23s)
+[![How to Play PC Games on Mac with SIKARUGIR – Step-by-Step Guide](https://i.imgur.com/osyM96e.png)](http://www.youtube.com/watch?v=pCgYxRPIqjE&t=23s)
 
 <br>
 
