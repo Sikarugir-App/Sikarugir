@@ -4,6 +4,11 @@ This project supports *macOS 10.15.4* or later.
 
 <br>
 
+> [!IMPORTANT]
+> This project is not a replacement for CrossOver or Whisky
+
+<br>
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/gcenx)
 [![](https://dcbadge.limes.pink/api/server/https://discord.gg/NTrT4QUvVS?compact=true)](https://discord.gg/NTrT4QUvVS)
 
