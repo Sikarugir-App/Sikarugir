@@ -1,6 +1,6 @@
 # Sikarugir
 A wrapper project that's the successor to Wineskin\
-This project supports *macOS 10.15.4* or later.
+This project supports *macOS 14* or later.
 
 <br>
 
