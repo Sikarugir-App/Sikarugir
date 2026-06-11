@@ -18,6 +18,7 @@ This project supports *macOS 14* or later.
 > How to install using [homebrew](https://brew.sh/)
 > ```
 > brew upgrade
+> brew trust Sikarugir-App/sikarugir
 > brew install --cask Sikarugir-App/sikarugir/sikarugir
 > ```
 >
