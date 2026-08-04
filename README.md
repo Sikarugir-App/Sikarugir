@@ -5,7 +5,7 @@ This project supports *macOS 14* or later.
 <br>
 
 > [!CAUTION]
-> If you came here from https:\\\sikarugir.com scan your system for malware, that site is not affiliated, owner nor ran by the Sikarugir team!
+> If you came here from https:\\\sikarugir.com scan your system for malware, that site is not affiliated, owned nor ran by the Sikarugir team!
 
 <br>
 
