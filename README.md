@@ -4,6 +4,11 @@ This project supports *macOS 14* or later.
 
 <br>
 
+> [!CAUTION]
+> If you came here from http:\\\sikarugir.com scan your system for malware, that site is not affiliated, owner nor ran by the Sikarugir team!
+
+<br>
+
 > [!IMPORTANT]
 > This project is not a replacement for CrossOver or Whisky
 
