@@ -35,6 +35,7 @@ body:
     attributes:
       label: Wrapper Version
       options:
+        - "Template-1.0.12"
         - "Template-1.0.11"
         - "Template-1.0.10"
         - "Template-1.0.9"
@@ -57,6 +58,7 @@ body:
       description: What Engine where you using
       options:
         - "WS12WineSikarugir10.0_6"
+        - "WS11WineSikarugir11.0 (No D3DMetal)"
         - "WS12WineSikarugir10.0_5 (not supported)"
         - "WS12WineSikarugir10.0_4 (not supported)"
         - "WS12WineSikarugir10.0_3 (not supported)"
@@ -64,7 +66,7 @@ body:
         - "WS12WineSikarugir10.0_1 (not supported)"
         - "WS12WineSikarugir10.0 (not supported)"
         - "WS12WineSikarugir10.0-battle.net (not supported)"
-        - "WS12WineCX24.0.7_7"
+        - "WS12WineCX24.0.7_7 (not supported)"
         - "WS12WineCX24.0.7_6 (not supported)"
         - "WS12WineCX24.0.7_5 (not supported)"
         - "WS12WineCX24.0.7_4 (not supported)"
