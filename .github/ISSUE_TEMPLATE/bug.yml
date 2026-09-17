@@ -10,6 +10,7 @@ body:
       label: macOS Version
       description: What version of macOS are you running?
       options:
+        - "Golden Gate (macOS 27)"
         - "Tahoe (macOS 26)"
         - "Sequoia (macOS 15)"
         - "Sonoma (macOS 14)"
