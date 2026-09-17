@@ -119,12 +119,11 @@ body:
       label: Render Used
       description: What render backend was used
       options:
-        - "WineD3D (default)"
         - "D3DMetal (Apple silicon, 64-bit only & macOS Sonoma or
         greater)"
-        - "DXMT (macOS Sonoma or greater)"
         - "DXVK"
-        - "D9VK (winetricks verb)"
+        - "D9VK (enabled by default when supported)"
+        - "DXMT (default)"
       default: 0
     validations:
       required: true
