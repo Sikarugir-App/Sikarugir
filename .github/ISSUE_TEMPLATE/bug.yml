@@ -36,7 +36,8 @@ body:
     attributes:
       label: Wrapper Version
       options:
-        - "Template-1.0.17"
+        - "Template-1.0.18"
+        - "Template-1.0.17 (not supported)"
         - "Template-1.0.16 (not supported)"
         - "Template-1.0.15 (not supported)"
         - "Template-1.0.14 (not supported)"
