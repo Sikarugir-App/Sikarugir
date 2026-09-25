@@ -65,8 +65,9 @@ body:
       label: Engine
       description: What Engine where you using
       options:
-        - "WS12WineSikarugir10.0_6"
-        - "WS11WineSikarugir11.0_1 (No D3DMetal)"
+        - "WS11WineSikarugir11.0"
+        - "WS12WineSikarugir10.0_6 (not supported)"
+        - "WS11WineSikarugir11.0_1 (not supported)"
         - "WS11WineSikarugir11.0 (not supported)"
         - "WS12WineSikarugir10.0_5 (not supported)"
         - "WS12WineSikarugir10.0_4 (not supported)"
