@@ -64,7 +64,7 @@ body:
     id: engine
     attributes:
       label: Engine
-      description: What Engine where you using
+      description: What Engine were you using?
       options:
         - "WS11WineSikarugir11.0_1"
         - "WS11WineSikarugir11.0 (not supported)"
@@ -125,8 +125,7 @@ body:
       label: Render Used
       description: What render backend was used
       options:
-        - "D3DMetal (Apple silicon, 64-bit only & macOS Sonoma or
-        greater)"
+        - "D3DMetal (Apple silicon, 64-bit only & macOS Sonoma or greater)"
         - "DXVK"
         - "D9VK (enabled by default when supported)"
         - "DXMT (default)"
