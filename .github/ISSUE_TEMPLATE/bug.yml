@@ -66,7 +66,8 @@ body:
       label: Engine
       description: What Engine where you using
       options:
-        - "WS11WineSikarugir11.0"
+        - "WS11WineSikarugir11.0_1"
+        - "WS11WineSikarugir11.0 (not supported)"
         - "WS12WineSikarugir10.0_6 (not supported)"
         - "WS11WineSikarugir11.0_1 (not supported)"
         - "WS11WineSikarugir11.0 (not supported)"
