@@ -1,0 +1,81 @@
+--- a/dlls/kernelbase/process.c
++++ b/dlls/kernelbase/process.c
+@@ -534,6 +534,60 @@
+     swprintf( ret, len, L"%s %s", cmdline, value );
+     FIXME( "HIGHBALL: appended %s to the command line of %s\n", debugstr_w(value), debugstr_w(base) );
+     return ret;
++}
++
++
++/* Local patch: HKCU\\Software\\Wine\\AppDefaults\\<exe>\\Environment (REG_SZ values) are added
++ * to the environment of that executable when it is created. Together with the
++ * __CX_UNIX_ promotion in ntdll this lets one program in a prefix get its own Unix
++ * variables, e.g. __CX_UNIX_WINEDLLPATH_PREPEND for a renderer overlay that only a
++ * game should load, while its launcher keeps Wine's own Direct3D. */
++static WCHAR *appdefaults_environment( const WCHAR *app_name, void *env, DWORD flags )
++{
++    const WCHAR *base = app_name, *p;
++    WCHAR key[MAX_PATH + 48], vname[256], vdata[2048];
++    WCHAR *newenv = NULL;
++    DWORD i, nlen, dlen, type;
++    HKEY hkey;
++
++    if (!app_name) return NULL;
++    if (env && !(flags & CREATE_UNICODE_ENVIRONMENT)) return NULL;
++    for (p = app_name; *p; p++) if (*p == '\\' || *p == '/') base = p + 1;
++    if (!*base || lstrlenW( base ) >= MAX_PATH) return NULL;
++    swprintf( key, ARRAY_SIZE(key), L"Software\\Wine\\AppDefaults\\%s\\Environment", base );
++    if (RegOpenKeyExW( HKEY_CURRENT_USER, key, 0, KEY_QUERY_VALUE, &hkey )) return NULL;
++
++    if (env)
++    {
++        const WCHAR *e = env;
++        SIZE_T len;
++        while (*e) e += lstrlenW( e ) + 1;
++        len = (e + 1 - (const WCHAR *)env) * sizeof(WCHAR);
++        if ((newenv = RtlAllocateHeap( GetProcessHeap(), 0, len ))) memcpy( newenv, env, len );
++    }
++    else RtlCreateEnvironment( TRUE, &newenv );
++    if (!newenv)
++    {
++        RegCloseKey( hkey );
++        return NULL;
++    }
++
++    for (i = 0;; i++)
++    {
++        UNICODE_STRING us_name, us_value;
++
++        nlen = ARRAY_SIZE(vname);
++        dlen = sizeof(vdata) - sizeof(WCHAR);
++        if (RegEnumValueW( hkey, i, vname, &nlen, NULL, &type, (BYTE *)vdata, &dlen )) break;
++        if (type != REG_SZ) continue;
++        vdata[dlen / sizeof(WCHAR)] = 0;
++        RtlInitUnicodeString( &us_name, vname );
++        RtlInitUnicodeString( &us_value, vdata );
++        RtlSetEnvironmentVariable( &newenv, &us_name, &us_value );
++        FIXME( "AppDefaults environment: %s=%s for %s\n", debugstr_w(vname), debugstr_w(vdata), debugstr_w(base) );
++    }
++    RegCloseKey( hkey );
++    return newenv;
+ }
+ 
+ /**********************************************************************
+@@ -629,8 +683,16 @@
+     info->hThread = info->hProcess = 0;
+     info->dwProcessId = info->dwThreadId = 0;
+ 
+-    if (!(params = create_process_params( app_name, tidy_cmdline, cur_dir, env, flags, startup_info )))
+     {
++        /* Local patch: per-executable environment (see appdefaults_environment) */
++        WCHAR *app_env = appdefaults_environment( app_name, env, flags );
++
++        params = create_process_params( app_name, tidy_cmdline, cur_dir, app_env ? app_env : env,
++                                        app_env ? (flags | CREATE_UNICODE_ENVIRONMENT) : flags, startup_info );
++        if (app_env) RtlFreeHeap( GetProcessHeap(), 0, app_env );
++    }
++    if (!params)
++    {
+         status = STATUS_NO_MEMORY;
+         goto done;
+     }
