@@ -27,7 +27,7 @@ body:
       label: Apple Silicon or Intel
       options:
         - "Apple Silicon"
-        - "Intel"
+        - "Intel (not supported)"
       default: 0
     validations:
       required: true
